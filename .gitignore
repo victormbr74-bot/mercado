@@ -1,0 +1,12 @@
+# Android/Gradle outputs
+.gradle/
+build/
+app/build/
+local.properties
+
+# IDE metadata
+.idea/
+*.iml
+
+# Generated Pages staging directory
+site/

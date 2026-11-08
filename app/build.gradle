@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.application'
+}
+
+def generatedWebAssets = layout.buildDirectory.dir('generated/web-assets')
+
+android {
+    namespace 'br.com.mercato'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'br.com.mercato'
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.assets.srcDir(generatedWebAssets)
+    }
+}
+
+tasks.register('copyWebApp', Sync) {
+    from(rootProject.projectDir) {
+        include 'index.html'
+        include 'manifest.webmanifest'
+        include 'sw.js'
+        include '*.png'
+    }
+    into(generatedWebAssets)
+}
+
+tasks.named('preBuild').configure {
+    dependsOn(tasks.named('copyWebApp'))
+}

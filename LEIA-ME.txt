@@ -1,0 +1,31 @@
+MERCATO — Lista de Compras (PWA instalável)
+
+CONTEÚDO
+index.html, manifest.webmanifest, sw.js e os ícones (png). Mantenha todos na mesma pasta.
+
+USO RÁPIDO (sem instalar)
+Abra index.html em qualquer navegador. Funciona e salva os dados no próprio aparelho (localStorage).
+Obs.: abrindo direto do arquivo, o navegador NÃO permite instalar nem usar offline por service worker.
+
+INSTALAR NA TELA INICIAL (celular e PC)
+O navegador só oferece a instalação quando o site é servido por HTTPS (ou localhost). Opções gratuitas:
+1) Netlify Drop: acesse app.netlify.com/drop e arraste esta pasta. Você recebe um link https.
+2) GitHub Pages: suba os arquivos para um repositório e ative Pages (Settings > Pages).
+3) Cloudflare Pages ou Vercel: crie um projeto estático apontando para a pasta.
+Teste local: na pasta, rode  python -m http.server 8080  e abra http://localhost:8080
+
+Depois de abrir o link:
+- Chrome/Edge (PC e Android): botão "Instalar" no app ou ícone de instalar na barra de endereço / menu "Instalar app".
+- Safari no iPhone/iPad: Compartilhar > Adicionar à Tela de Início.
+- Firefox Android: menu > Instalar. Firefox no PC não instala sites, mas funciona normalmente.
+
+DADOS
+Ficam no navegador/aparelho onde o app foi usado. Se limpar os dados do site, as listas se perdem:
+use Backup (ícone de download) > Baixar arquivo de vez em quando. Para restaurar, use Importar.
+Cada endereço (link) tem seus próprios dados: use sempre o mesmo link.
+
+ATUALIZAR O APP
+Troque os arquivos no hospedeiro. Se mudar index.html, altere também a versão em sw.js (const C='mercato-v1' -> 'mercato-v2'). Os dados não são apagados.
+
+APK ANDROID
+O projeto Android fica em app/. O workflow .github/workflows/deploy-pages.yml compila a versão release e publica o arquivo em downloads/mercato.apk junto com o GitHub Pages. O botão "Baixar APK" da versão web aponta para esse arquivo.
