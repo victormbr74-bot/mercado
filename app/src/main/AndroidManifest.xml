@@ -3,8 +3,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@android:drawable/sym_def_app_icon"
+        android:icon="@drawable/mercato_icon"
         android:label="Mercato"
+        android:roundIcon="@drawable/mercato_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mercato">
         <activity

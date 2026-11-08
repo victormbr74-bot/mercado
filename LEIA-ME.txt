@@ -29,3 +29,6 @@ Troque os arquivos no hospedeiro. Se mudar index.html, altere também a versão 
 
 APK ANDROID
 O projeto Android fica em app/. O workflow .github/workflows/deploy-pages.yml compila a versão release e publica o arquivo em downloads/mercato.apk junto com o GitHub Pages. O botão "Baixar APK" da versão web aponta para esse arquivo.
+
+ÍCONE E IOS
+O APK usa o ícone próprio em app/src/main/res/drawable/mercato_icon.png. iPhone não usa APK: o formato correto é IPA, que exige macOS, Xcode e assinatura Apple. A versão web/PWA funciona no iPhone pelo Safari.
