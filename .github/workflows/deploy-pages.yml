@@ -43,7 +43,9 @@ jobs:
         run: |
           mkdir -p site/downloads
           cp index.html manifest.webmanifest sw.js *.png site/
-          cp app/build/outputs/apk/release/app-release.apk site/downloads/mercato.apk
+          apk_path=$(find app/build/outputs/apk/release -maxdepth 1 -type f -name '*.apk' | head -n 1)
+          test -n "$apk_path"
+          cp "$apk_path" site/downloads/mercato.apk
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
